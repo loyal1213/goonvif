@@ -2,7 +2,7 @@ package xsd
 
 import (
 	"time"
-	iso8601 "github.com/yakovlevdmv/Golang-iso8601-duration"
+	iso8601 "github.com/loyal1213/Golang-iso8601-duration"
 	"log"
 	"fmt"
 	"encoding/hex"
