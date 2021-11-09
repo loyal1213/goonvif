@@ -8,12 +8,12 @@ import (
 	"strconv"
 	"net/http"
 	"io/ioutil"
-	"github.com/yakovlevdmv/WS-Discovery"
+	"github.com/loyal1213/WS-Discovery"
 	"strings"
-	"github.com/yakovlevdmv/goonvif/Device"
+	"github.com/loyal1213/goonvif/Device"
 	"errors"
 	"reflect"
-	"github.com/yakovlevdmv/goonvif/networking"
+	"github.com/loyal1213/goonvif/networking"
 )
 
 var Xlmns = map[string]string {
