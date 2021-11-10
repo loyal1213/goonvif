@@ -83,7 +83,24 @@ type device struct {
 }
 
 func (dev *device)GetServices() map[string]string {
+
+	// fmt.Println(dev.xaddr, ",",dev.login, ",", dev.password, ",", dev.endpoints)
+
+	// fmt.Println("Model: ",dev.info.Model,", FirmwareVersion: " ,dev.info.FirmwareVersion, ", HardwareId: ",dev.info.HardwareId, ", Manufacturer: ",dev.info.Manufacturer, ", SerialNumber",dev.info.SerialNumber)
+
 	return dev.endpoints
+}
+
+func (dev *device)GetXaddr() string {
+	return dev.xaddr
+}
+
+func (dev *device)GetLogin() string {
+	return dev.login
+}
+
+func (dev *device)GetPassword() string {
+	return dev.password
 }
 
 func readResponse(resp *http.Response) string {
@@ -100,7 +117,7 @@ func GetAvailableDevicesAtSpecificEthernetInterface(interfaceName string) []devi
 	 */
 	devices := WS_Discovery.SendProbe(interfaceName, nil, []string{"dn:"+NVT.String()}, map[string]string{"dn":"http://www.onvif.org/ver10/network/wsdl"})
 	nvtDevices := make([]device, 0)
-	////fmt.Println(devices)
+	// fmt.Println(devices)
 	for _, j := range devices {
 		doc := etree.NewDocument()
 		if err := doc.ReadFromString(j); err != nil {
@@ -112,7 +129,7 @@ func GetAvailableDevicesAtSpecificEthernetInterface(interfaceName string) []devi
 		for _, xaddr := range endpoints {
 			//fmt.Println(xaddr.Tag,strings.Split(strings.Split(xaddr.Text(), " ")[0], "/")[2] )
 			xaddr := strings.Split(strings.Split(xaddr.Text(), " ")[0], "/")[2]
-			fmt.Println(xaddr)
+			// fmt.Println(xaddr)
 			c := 0
 			for c = 0; c < len(nvtDevices); c++ {
 				if nvtDevices[c].xaddr == xaddr {
@@ -230,17 +247,24 @@ func (dev device) CallMethod(method interface{}) (*http.Response, error) {
 
 	var endpoint string
 	switch pkg {
-		case "Device": endpoint = dev.endpoints["Device"]
-		case "Event": endpoint = dev.endpoints["Event"]
-		case "Imaging": endpoint = dev.endpoints["Imaging"]
-		case "Media": endpoint = dev.endpoints["Media"]
-		case "PTZ": endpoint = dev.endpoints["PTZ"]
+	case "Device": endpoint = dev.endpoints["Device"]
+		fmt.Println("Device: ",endpoint,"method: ",method)
+	case "Event": endpoint = dev.endpoints["Event"]
+		fmt.Println("Event: ",endpoint)
+	case "Imaging": endpoint = dev.endpoints["Imaging"]
+		fmt.Println("Imaging: ",endpoint)
+	case "Media": endpoint = dev.endpoints["Media"]
+		fmt.Println("Media: ",endpoint)
+	case "PTZ": endpoint = dev.endpoints["PTZ"]
+		fmt.Println("PTZ: ",endpoint,",method: ",method)
 	}
 
 	//TODO: Get endpoint automatically
 	if dev.login != "" && dev.password != "" {
+		fmt.Println("callAuthorizedMethod -----------------------------")
 		return dev.callAuthorizedMethod(endpoint, method)
 	} else {
+		fmt.Println("callNonAuthorizedMethod ++++++++++++++++++++++++++++++")
 		return dev.callNonAuthorizedMethod(endpoint, method)
 	}
 }
@@ -251,11 +275,14 @@ func (dev device) callNonAuthorizedMethod(endpoint string, method interface{}) (
 	/*
 	Converting <method> struct to xml string representation
 	 */
+	// endpoint: http://192.168.0.73/onvif/PTZ ,
+	// method:  { Profile_1 {{-0.3 0.3 http://www.onvif.org/ver10/tptz/PanTiltSpaces/VelocityGenericSpace} {0 http://www.onvif.org/ver10/tptz/ZoomSpaces/VelocityGenericSpace}} }
 	output, err := xml.MarshalIndent(method, "  ", "    ")
 	if err != nil {
 		//log.Printf("error: %v\n", err.Error())
 		return nil, err
 	}
+
 
 	/*
 	Build an SOAP request with <method>
@@ -265,6 +292,7 @@ func (dev device) callNonAuthorizedMethod(endpoint string, method interface{}) (
 		//log.Printf("error: %v\n", err)
 		return nil, err
 	}
+
 
 	/*
 	Adding namespaces
@@ -288,6 +316,8 @@ func (dev device) callAuthorizedMethod(endpoint string, method interface{}) (*ht
 		return nil, err
 	}
 
+	// fmt.Println("output: ", string(output))
+
 	/*
 	Build an SOAP request with <method>
 	 */
@@ -296,6 +326,8 @@ func (dev device) callAuthorizedMethod(endpoint string, method interface{}) (*ht
 		//log.Printf("error: %v\n", err.Error())
 		return nil, err
 	}
+
+	// fmt.Println("soap: ", soap.String())
 
 	/*
 	Adding namespaces and WS-Security headers

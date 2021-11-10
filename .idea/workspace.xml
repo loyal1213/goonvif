@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8269f00b-1777-4327-98ba-04fd30bc9c8d" name="默认变更列表" comment="" />
+    <list default="true" id="8269f00b-1777-4327-98ba-04fd30bc9c8d" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analytics/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Device.go" beforeDir="false" afterPath="$PROJECT_DIR$/Device.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Device/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/Device/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/Event/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Imaging/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/Imaging/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Media/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/Media/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTZ/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/PTZ/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/get_structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_structs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/DeviceService.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/DeviceService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xsd/built_in.go" beforeDir="false" afterPath="$PROJECT_DIR$/xsd/built_in.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xsd/onvif/onvif.go" beforeDir="false" afterPath="$PROJECT_DIR$/xsd/onvif/onvif.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +26,9 @@
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../Golang/go1.17.2" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="20fxmcU4pXKoZo4UdvAVQzNVSP4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -21,16 +40,23 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable..is.expanded" value="false" />
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go 构建.go build DeviceService.go">
+    <configuration name="go build DeviceService.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="goonvif" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/examples/DeviceService.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build Device.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="goonvif" />
       <working_directory value="$PROJECT_DIR$" />
@@ -41,6 +67,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build DeviceService.go" />
         <item itemvalue="Go 构建.go build Device.go" />
       </list>
     </recent_temporary>
@@ -59,6 +86,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

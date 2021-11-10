@@ -139,6 +139,19 @@ type SetPresetResponse struct {
 }
 
 
+type AddPreset struct {
+	XMLName string `xml:"tptz:SetPreset"`
+	ProfileToken onvif.ReferenceToken `xml:"tptz:ProfileToken"`
+	PresetName xsd.String `xml:"tptz:PresetName"`
+}
+
+
+type AddPresetResponse struct {
+	PresetToken onvif.ReferenceToken
+
+}
+
+
 type RemovePreset struct {
 	XMLName string `xml:"tptz:RemovePreset"`
 	ProfileToken onvif.ReferenceToken `xml:"tptz:ProfileToken"`
