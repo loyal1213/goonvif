@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/yakovlevdmv/goonvif"
+	"github.com/loyal1213/goonvif"
 	"net/http"
 	"io/ioutil"
-	"github.com/yakovlevdmv/goonvif/Device"
-	"github.com/yakovlevdmv/goonvif/xsd/onvif"
+	"github.com/loyal1213/goonvif/Device"
+	"github.com/loyal1213/goonvif/xsd/onvif"
 	"fmt"
 	"log"
-	"github.com/yakovlevdmv/gosoap"
+	"github.com/loyal1213/gosoap"
 )
 
 const (
@@ -62,7 +62,7 @@ func main() {
 		log.Println(err)
 	} else {
 		/*
-		You could use https://github.com/yakovlevdmv/gosoap for pretty printing response
+		You could use https://github.com/loyal1213/gosoap for pretty printing response
 		 */
 		fmt.Println(gosoap.SoapMessage(readResponse(createUserResponse)).StringIndent())
 	}
